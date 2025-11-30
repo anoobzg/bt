@@ -5,6 +5,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(test)
 
 find_package(fmt CONFIG REQUIRED)
+if(NOT TARGET fmt::fmt-header-only)
+    add_library(fmt::fmt-header-only ALIAS fmt::fmt)
+endif()
 find_package(Lua REQUIRED)
 find_package(GTest CONFIG REQUIRED)
 

@@ -26,6 +26,12 @@ class LightMaker(ConanFile):
         self.requires("tinygltf/2.9.0")
         self.requires("assimp/5.4.2")
         self.requires("opencv/4.5.5")
+        self.requires("imgui/1.90.5")
+        self.requires("implot/0.16")
+        self.requires("tinyxml2/10.0.0")
+        self.requires("lua/5.4.7")
+        self.requires("gtest/1.15.0")
+        self.requires("pranav-csv2/0.1")
 
     def generate(self):
         tc = CMakeToolchain(self)

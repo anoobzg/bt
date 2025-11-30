@@ -9,7 +9,11 @@ set(APP_GITHUB_URL "https://github.com/aloneguid/bt")
 set(APP_GITHUB_RELEASES_URL "https://github.com/aloneguid/bt/releases")
 
 find_package(fmt CONFIG REQUIRED)
+if(NOT TARGET fmt::fmt-header-only)
+    add_library(fmt::fmt-header-only ALIAS fmt::fmt)
+endif()
 find_package(nlohmann_json CONFIG REQUIRED)
+find_package(csv2 CONFIG REQUIRED)
 find_path(P_RANAV_CSV2_INCLUDE_DIRS "csv2/mio.hpp")
 find_package(tinyxml2 CONFIG REQUIRED)
 find_package(Lua REQUIRED)
@@ -52,7 +56,7 @@ target_compile_definitions(${APP_NAME} PRIVATE
     APP_DOCS_URL="https://www.aloneguid.uk/projects/bt/"
     APP_HELP_BASE_URL="https://www.aloneguid.uk/projects/bt/"
     APP_BUYMEACOFFEE_URL="https://www.buymeacoffee.com/alonecoffee"
-    APP_CONTACT_URL="https://www.aloneguid.uk/about/#contact"
+    APP_CONTACT_URL="https://www.aloneguid.uk/about/"
     APP_REG_DESCRIPTION="Redirects open URLs to a browser of your choice."
 )
 
